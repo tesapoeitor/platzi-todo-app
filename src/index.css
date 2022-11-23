@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rotate {
+    transform: rotate(45deg);
+    transition: transform .2s;
+    right: 10px;
+    top: 5px;
+}
