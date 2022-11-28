@@ -1,10 +1,13 @@
 import React from "react"
-import { TodoContext } from "../TodoContext"
+import { TodoContext } from "../App/useTodos"
 import { TodoContextType } from "../Types/Todo"
 
-function TodoCounter() {
-    const { completedTodos, totalTodos } = React.useContext(TodoContext) as TodoContextType
+type Props = {
+    completedTodos: number,
+    totalTodos: number
+}
 
+function TodoCounter({completedTodos, totalTodos}: Props) {
     return (
         <h2 className="
             m-[10px] 
