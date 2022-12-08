@@ -11,6 +11,7 @@ import { EmptyTodo } from "../EmptyTodo"
 import { CreateTodoButton } from "../CreateTodoButton"
 import { Modal } from "../Modal"
 import { useTodos } from "./useTodos"
+import { ChangeAlertWithStorageListener } from "../ChangeAlert"
 
 function App() {
   const { 
@@ -25,7 +26,8 @@ function App() {
     totalTodos,
     searchValue,
     setSearchValue,
-    addTodo
+    addTodo,
+    synchronizeTodo
 } = useTodos()
   
   return (
@@ -40,9 +42,12 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
         onError={() => <TodoError/>}
         onLoading={() => <TodoLoading/>}
-        onEmpty={() => <EmptyTodo/>}
+        onEmptyTodos={() => <EmptyTodo/>}
+        onEmptySearchResults={(searchText: string) => <p>No hay resultados para {searchText}</p>}
         render={todo => {
           return <TodoItem 
             key={todo.text} 
@@ -65,6 +70,10 @@ function App() {
       <CreateTodoButton 
       setOpenModal={setOpenModal}
       openModal={openModal}
+      />
+
+      <ChangeAlertWithStorageListener 
+        synchronize={synchronizeTodo}
       />
   </React.Fragment>
   )
