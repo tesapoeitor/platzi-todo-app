@@ -1,10 +1,8 @@
 import React from "react"
-import { TodoContext } from "../App/useTodos"
-import { TodoContextType } from "../Types/Todo"
 
 type Props = {
     searchValue: string,
-    setSearchValue: React.Dispatch<React.SetStateAction<string>>, //buscar alterativa para este tipo
+    setSearchValue: React.Dispatch<React.SetStateAction<string>>
 }
 
 function TodoSearch({ searchValue, setSearchValue }: Props) {

@@ -1,5 +1,4 @@
 import React, { FormEvent } from "react";
-import { TodoContext } from "../App/useTodos";
 import { TodoContextType } from "../Types/Todo";
 import "./index.css";
 

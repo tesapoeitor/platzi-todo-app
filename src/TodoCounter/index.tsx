@@ -1,7 +1,3 @@
-import React from "react"
-import { TodoContext } from "../App/useTodos"
-import { TodoContextType } from "../Types/Todo"
-
 type Props = {
     completedTodos: number,
     totalTodos: number
