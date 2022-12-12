@@ -1,13 +1,12 @@
-import React from "react"
-import { withStorageListener } from "./withStorageListener"
+import { useStorageListener } from "./useStorageListener"
 
-export type Props = {
-    show: boolean,
-    toggleShow:  () => void,
+type Props = {
     synchronize: () => void
 }
 
-function ChangeAlert({ show, toggleShow  }: Props) {
+function ChangeAlert({ synchronize }: Props) {
+    const { show, toggleShow } = useStorageListener(synchronize)
+
     if(show) {
         return (
             <>
@@ -21,6 +20,4 @@ function ChangeAlert({ show, toggleShow  }: Props) {
     return null
 }
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert)
-
-export { ChangeAlertWithStorageListener }
+export { ChangeAlert }
