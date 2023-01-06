@@ -1,19 +1,19 @@
 import React from "react"
-import { TodoHeader } from "../TodoHeader"
-import { TodoCounter } from "../TodoCounter"
-import { TodoSearch } from "../TodoSearch"
-import { TodoList } from "../TodoList"
-import { TodoItem } from "../TodoItem"
-import { TodoForm } from "../TodoForm"
-import { TodoError } from "../TodoError"
-import { TodoLoading } from "../TodoLoading"
-import { EmptyTodo } from "../EmptyTodo"
-import { CreateTodoButton } from "../CreateTodoButton"
-import { Modal } from "../Modal"
-import { useTodos } from "./useTodos"
-import { ChangeAlert } from "../ChangeAlert"
+import { TodoHeader } from "../../ui/TodoHeader"
+import { TodoCounter } from "../../ui/TodoCounter"
+import { TodoSearch } from "../../ui/TodoSearch"
+import { TodoList } from "../../ui/TodoList"
+import { TodoItem } from "../../ui/TodoItem"
+import { TodoForm } from "../..//ui/TodoForm"
+import { TodoError } from "../../ui/TodoError"
+import { TodoLoading } from "../../ui/TodoLoading"
+import { EmptyTodo } from "../../ui/EmptyTodo"
+import { CreateTodoButton } from "../../ui/CreateTodoButton"
+import { Modal } from "../../ui/Modal"
+import { useTodos } from "./../useTodos"
+import { ChangeAlert } from "../../ui/ChangeAlert"
 
-function App() {
+function HomePage() {
   const { 
     error,
     loading,
@@ -77,4 +77,4 @@ function App() {
   )
 }
 
-export default App
+export { HomePage }
