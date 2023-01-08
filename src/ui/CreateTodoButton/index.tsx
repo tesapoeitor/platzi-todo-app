@@ -1,16 +1,10 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
-type Props = {
-    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>,
-    openModal: boolean
-}
-
-function CreateTodoButton({
-    setOpenModal,
-    openModal
-}: Props) {
+function CreateTodoButton() {
+    const navigate = useNavigate()
     const onClickButton = () => {
-        openModal ? setOpenModal(false) : setOpenModal(true)
+       navigate("/create")
     }
 
     return (
@@ -32,7 +26,7 @@ function CreateTodoButton({
             <span className={`
                 absolute top-[2px] 
                 right-[14px]
-                ` + (openModal ? " rotate" : " ")}>+
+                `}>+
             </span>
         </button>
     )

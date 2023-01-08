@@ -4,7 +4,8 @@ type props = {
     text: string, 
     completed: boolean,
     onComplete: () => void,
-    onDelete: () => void
+    onDelete: () => void,
+    onEdit: () => void
 }
 
 function TodoItem(props: props) {
@@ -38,13 +39,23 @@ function TodoItem(props: props) {
             </p>
 
             <span 
+                onClick={props.onEdit}
+                className="
+                    w-[5%]
+                    mx-1 
+                    py-1 
+                    cursor-pointer
+                    text-left"
+            >✏</span>
+            <span 
                 onClick={props.onDelete}
                 className="
                     w-[5%]
                     mx-1 
                     py-1 
                     cursor-pointer
-                    text-left">❌</span>
+                    text-left"
+            >❌</span>
         </li>
     )
 }

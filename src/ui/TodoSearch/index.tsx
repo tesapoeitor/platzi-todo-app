@@ -7,9 +7,9 @@ type Props = {
 
 function TodoSearch({ searchValue, setSearchValue }: Props) {
 
-    const onSearchValueChange = (e: any) => {
-        console.log(e.target.value)
-        setSearchValue(e.target.value)
+    const onSearchValueChange = (e: React.FormEvent<HTMLInputElement>) => {
+        console.log(e.currentTarget.value)
+        setSearchValue(e.currentTarget.value)
     }
 
     return (

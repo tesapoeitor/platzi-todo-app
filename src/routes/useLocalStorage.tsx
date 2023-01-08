@@ -1,5 +1,5 @@
 import React from "react"
-import { ITodo } from "../Types/Todo"
+import { ITodo } from "../ui/Types/Todo"
 
 interface State {
   synchronizedItem: boolean,

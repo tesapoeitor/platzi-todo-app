@@ -12,6 +12,7 @@ import { CreateTodoButton } from "../../ui/CreateTodoButton"
 import { Modal } from "../../ui/Modal"
 import { useTodos } from "./../useTodos"
 import { ChangeAlert } from "../../ui/ChangeAlert"
+import { useNavigate } from "react-router-dom"
 
 function HomePage() {
   const { 
@@ -20,8 +21,8 @@ function HomePage() {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    openModal,
-    setOpenModal,
+    // openModal,
+    // setOpenModal,
     completedTodos,
     totalTodos,
     searchValue,
@@ -29,6 +30,8 @@ function HomePage() {
     addTodo,
     synchronizeTodo
 } = useTodos()
+
+  const navigate = useNavigate()
   
   return (
     
@@ -37,6 +40,7 @@ function HomePage() {
           <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos}/>
           <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       </TodoHeader>
+
 
       <TodoList 
         error={error}
@@ -53,24 +57,22 @@ function HomePage() {
             key={todo.text} 
             text={todo.text} 
             completed={todo.completed}
-            onComplete={completeTodo(todo.text)}
-            onDelete={deleteTodo(todo.text)}/>
+            onComplete={completeTodo(todo.id)}
+            onDelete={deleteTodo(todo.id)}
+            onEdit={() => navigate(`/edit/${todo.id}`)}/>
            }
           }
       />
 
-      {openModal && (
+      {/* {openModal && (
           <Modal>
               <TodoForm setOpenModal={setOpenModal} addTodo={addTodo}/>   
           </Modal>   
-      )}
+      )} */}
               
           
 
-      <CreateTodoButton 
-      setOpenModal={setOpenModal}
-      openModal={openModal}
-      />
+      <CreateTodoButton/>
 
       <ChangeAlert synchronize={synchronizeTodo}/>
   </React.Fragment>
