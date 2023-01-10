@@ -29,7 +29,10 @@ function useTodos() {
     })
   }
 
-  
+  const getTodo = (id: ITodo["id"]) => {
+    const todoIndex = todos.findIndex( todo => todo.id === id)
+    return todos[todoIndex]
+  }
 
   const completeTodo = (id: ITodo["id"]) => {
     return () => {
@@ -80,6 +83,7 @@ function useTodos() {
       addTodo,
       deleteTodo,
       editTodo,
+      getTodo,
       synchronizeTodo
     }
   )

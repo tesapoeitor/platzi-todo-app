@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 type Props = {
     submitEvent:  TodoContextType["addTodo"]
     label: string,
-    submitText: string
+    submitText: string,
+    defaultTodoText?: string
 }
 
 function TodoForm(props: Props) {
-    const [newTodoValue, setNewTodoValue] = React.useState("")
+    const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText ?? "")
     const navigate = useNavigate()
 
     const onCancel = () => {
@@ -31,7 +32,7 @@ function TodoForm(props: Props) {
     return (
         <form action="" onSubmit={onSubmit}>
             <label>{props.label}</label>
-            <textarea name="" id="" cols={30} rows={5} placeholder="Cortar Cebollas" onChange={onEdit}></textarea>
+            <textarea value={newTodoValue} name="" id="" cols={30} rows={5} placeholder="Cortar Cebollas" onChange={onEdit}></textarea>
 
             <div className="TodoForm-buttonContainer">
                 <button type="button" onClick={onCancel} className="TodoForm-button TodoForm-button--cancel">Cancelar</button>

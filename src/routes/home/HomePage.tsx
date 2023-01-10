@@ -12,7 +12,7 @@ import { CreateTodoButton } from "../../ui/CreateTodoButton"
 import { Modal } from "../../ui/Modal"
 import { useTodos } from "./../useTodos"
 import { ChangeAlert } from "../../ui/ChangeAlert"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 function HomePage() {
   const { 
@@ -59,19 +59,15 @@ function HomePage() {
             completed={todo.completed}
             onComplete={completeTodo(todo.id)}
             onDelete={deleteTodo(todo.id)}
-            onEdit={() => navigate(`/edit/${todo.id}`)}/>
+            onEdit={() => {
+              navigate(`/edit/${todo.id}`,
+                {state: todo}
+              )
+            }}/>
            }
           }
       />
-
-      {/* {openModal && (
-          <Modal>
-              <TodoForm setOpenModal={setOpenModal} addTodo={addTodo}/>   
-          </Modal>   
-      )} */}
-              
-          
-
+        
       <CreateTodoButton/>
 
       <ChangeAlert synchronize={synchronizeTodo}/>
