@@ -1,4 +1,5 @@
 import React from "react"
+import { useSearchParams } from "react-router-dom"
 
 type Props = {
     searchValue: string,
@@ -6,10 +7,22 @@ type Props = {
 }
 
 function TodoSearch({ searchValue, setSearchValue }: Props) {
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    React.useEffect(() => {
+        const searchText = searchParams.get("search") ?? ""
+        setSearchValue(searchText)
+    }, [])
 
     const onSearchValueChange = (e: React.FormEvent<HTMLInputElement>) => {
-        console.log(e.currentTarget.value)
-        setSearchValue(e.currentTarget.value)
+        const searchText = e.currentTarget.value
+        
+        setSearchValue(searchText)
+        if(searchText) {
+            setSearchParams({search: searchText})
+        } else {
+            setSearchParams("")
+        }
     }
 
     return (
@@ -25,7 +38,8 @@ function TodoSearch({ searchValue, setSearchValue }: Props) {
                 p-1 
                 pl-[20px] 
                 border-b-[2px]
-                "/>
+            "
+        />
     )
 }
 

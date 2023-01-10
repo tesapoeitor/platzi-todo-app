@@ -21,8 +21,6 @@ function HomePage() {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    // openModal,
-    // setOpenModal,
     completedTodos,
     totalTodos,
     searchValue,
